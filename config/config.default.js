@@ -23,6 +23,14 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  // connect mongoose
+  config.mongoose = { 
+    url: process.env.EGG_MONGODB_URL || 'mongodb://127.0.0.1/website',
+    options: { 
+      server: { poolSize: 40 }
+    }
+  };
+
   return {
     ...config,
     ...userConfig,
